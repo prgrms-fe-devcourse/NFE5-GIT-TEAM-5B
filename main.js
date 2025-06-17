@@ -1,3 +1,5 @@
+import {  } from './js/index.js';
+
 const split = new SplitText(".main_visual01 h2", { type: "chars" });
 gsap.from(split.chars, {
   opacity: 0,
