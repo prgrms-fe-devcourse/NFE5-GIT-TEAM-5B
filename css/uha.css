@@ -35,10 +35,14 @@
   border: 1px solid black;
   padding : 5px 0;
   box-sizing: border-box;
+  color: white;
+  font-weight: 600;
 
   background-repeat : no-repeat;
   background-position : center;
   background-size: cover;
+
+
 
   > .uhaUnhidden {
     display: flex;
@@ -54,7 +58,10 @@
     padding: 10px 15px;
     cursor: pointer;
     box-sizing: border-box;
-    /* opacity: 0;  */
+    > p{
+      background-color: rgba(29, 29, 29, 0.5)
+    }
   }
+
 
 }
