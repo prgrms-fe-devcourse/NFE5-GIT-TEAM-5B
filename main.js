@@ -75,28 +75,27 @@ gsap.to(visualWrapper, {
   },
 });
 
-
+const festivalList = getFestival();
 const uhaUl = document.querySelector(".uhaUl");
 const imgNode = document.querySelector(".map-block");
 const infoNode = document.querySelector(".fillter-list");
 
-handleSearchClick((festivalList) => {
-  uhaUl.innerHTML = '';
-  uhaRenderList(festivalList, uhaUl);
+uhaRenderList(festivalList, uhaUl);
+const uhaButtons = document.querySelectorAll("li button");
 
-  const uhaButtons = document.querySelectorAll("li button");
-  uhaButtons.forEach((uhaButton) => {
-    uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
-    uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
-  });
-})
-
+uhaButtons.forEach((uhaButton) => {
+  uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
+  uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
+});
 
 function test(e) {
   console.log("test 함수 호출");
   const target = e.target.closest(".uhaLi button");
   const targetId = target.id;
   createFestivalInfo(targetId, infoNode, imgNode);
+
+  uhaUl.classList.add("display-none");
+  imgNode.classList.add("display-none");
 }
 
 uhaUl.addEventListener("click", test);

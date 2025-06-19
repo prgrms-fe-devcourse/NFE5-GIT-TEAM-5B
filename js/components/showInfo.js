@@ -8,6 +8,8 @@ export function createFestivalInfo(targetId, parentNode, imageParentNode) {
     return; // 중복 생성 방지
   }
 
+  console.log(imageParentNode);
+
   const [festival] = getFestival("id", targetId); // 축제 데이터 가져오기
   if (!festival) {
     console.warn(`ID가 ${targetId}인 축제가 없습니다.`);
@@ -26,18 +28,26 @@ export function createFestivalInfo(targetId, parentNode, imageParentNode) {
   parentNode.appendChild(infoNode);
 
   // 이미지 노드 생성 및 삽입 (선언 위치는 이벤트 리스너와 공유할 수 있도록 바깥에 둠)
+  const inner = document.querySelector(".section02 .inner");
   let imageNode = null;
   if (image && imageParentNode) {
     imageNode = createImageTemplate(image);
-    imageParentNode.appendChild(imageNode);
+    inner.prepend(imageNode);
   }
 
   // ✅ 뒤로가기 버튼 클릭 시 정보 + 이미지 제거
   const closeBtn = infoNode.querySelector(".close-btn");
   closeBtn.addEventListener("click", () => {
     infoNode.remove();
-    if (imageNode && imageParentNode.contains(imageNode)) {
+    if (imageNode && inner.contains(imageNode)) {
       imageNode.remove();
+    }
+
+    const uhaUlNode = document.querySelector(".uhaUl");
+    const mapNode = document.querySelector(".map-block");
+    if (uhaUlNode) {
+      uhaUlNode.classList.remove("display-none");
+      mapNode.classList.remove("display-none");
     }
   });
 }
