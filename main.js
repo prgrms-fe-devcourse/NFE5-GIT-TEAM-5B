@@ -106,7 +106,21 @@ searchButton.addEventListener("click", () => {
   festivalList = filterFestivals();
   uhaUl.innerHTML = "";
 
-  uhaRenderList(festivalList, uhaUl);
+searchButton.addEventListener('click',()=>{
+    festivalList = filterFestivals();
+    uhaUl.innerHTML = '';
+
+    uhaRenderList(festivalList, uhaUl);
+
+    gsap.from('.uhaLi', {
+    opacity: 0,
+    y: 30,
+    stagger: 0.1,
+    duration: 0.5,
+    ease: 'power2.out'
+    });
+
+  })
 
   markers = deleteMarkers();
   markers = addMarkers(map, festivalList);
