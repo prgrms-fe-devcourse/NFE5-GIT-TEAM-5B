@@ -2,9 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,node,visualstudiocode,webstorm,windows
 
 
-#API_KEYS
-js/data/apikey.js
-
 ### macOS ###
 # General
 .DS_Store
