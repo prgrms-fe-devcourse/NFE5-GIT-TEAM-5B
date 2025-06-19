@@ -82,6 +82,13 @@ const imgNode = document.querySelector(".map-block");
 const infoNode = document.querySelector(".fillter-list");
 const searchButton = document.querySelector('.search-button');
 
+uhaRenderList(festivalList, uhaUl);
+const uhaButtons = document.querySelectorAll("li button");
+
+uhaButtons.forEach((uhaButton) => {
+  uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
+  uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);})
+
 
 searchButton.addEventListener('click',()=>{
     festivalList = filterFestivals();
