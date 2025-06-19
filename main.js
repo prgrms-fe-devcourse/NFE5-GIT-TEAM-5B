@@ -5,7 +5,7 @@ import {
   uhaHandleMouseLeave,
  } from './js/index.js';
 
- const $ = document.querySelector.bind(document);
+const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 const toggle = $(".nav_btn");
 const nav = $(".nav");
@@ -71,10 +71,29 @@ gsap.to(visualWrapper, {
   },
 });
 
+const controllerBtn = $(".video_controller a");
+const video = $(".main_video");
 
+function controllerBtnHandler(type) {
+  if (type === 'pause') {
+    controllerBtn.setAttribute('data-play', 'play');
+    controllerBtn.classList.remove('pause');
+  } else if (type === 'play') {
+    controllerBtn.classList.add('pause');
+    controllerBtn.setAttribute('data-play', 'pause');
+  }
+}
 
-
-
+controllerBtn.addEventListener('click', function() {
+  const dataPlay = this.getAttribute('data-play');
+  if (dataPlay === 'pause') {
+    video.play().catch(e => console.error(e));
+    controllerBtnHandler('pause');
+  } else if (dataPlay === 'play') {
+    video.pause();
+    controllerBtnHandler('play');
+  }
+});
 
 
 const festivalList = getFestival();
