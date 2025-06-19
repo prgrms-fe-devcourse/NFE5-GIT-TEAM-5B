@@ -1,4 +1,9 @@
-import {  } from './js/index.js';
+import { 
+  getFestival,
+  uhaRenderList,
+  uhaHandleMouseEnter,
+  uhaHandleMouseLeave,
+ } from './js/index.js';
 
 const split = new SplitText(".main_visual01 h2", { type: "chars" });
 gsap.from(split.chars, {
@@ -29,4 +34,22 @@ gsap.to(visualWrapper, {
     pin: true,
     invalidateOnRefresh: true,
   },
+});
+
+
+
+
+
+
+
+const festivalList = getFestival();
+const uhaUl = document.querySelector('.uhaUl');
+
+uhaRenderList(festivalList,uhaUl);
+const uhaButtons = document.querySelectorAll('li button');
+
+
+uhaButtons.forEach(uhaButton => {
+uhaButton.addEventListener('mouseenter', uhaHandleMouseEnter);
+uhaButton.addEventListener('mouseleave', uhaHandleMouseLeave);
 });

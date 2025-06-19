@@ -1,0 +1,67 @@
+.uhaLi button {
+  all: unset;
+  cursor: pointer;
+  }
+.uhaLi button div p {
+  all : unset;
+}
+
+
+
+.uhaUl {
+  width: 500px;
+  height: 500px;
+  overflow-y: scroll;
+  margin : 0 0 10px;
+}
+
+.uhaUl::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgb(153, 152, 152);
+  padding:3px;
+}
+
+.uhaUl::-webkit-scrollbar-thumb {
+  background: rgba(61, 61, 61, 0.685);
+  border-radius: 4px;
+  border: 1px solid rgba(61, 61, 61, 0.685);
+  
+}
+
+
+
+.uhaLi button {
+  width: 100%;
+  border: 1px solid black;
+  padding : 5px 0;
+  box-sizing: border-box;
+  color: white;
+  font-weight: 600;
+
+  background-repeat : no-repeat;
+  background-position : center;
+  background-size: cover;
+
+
+
+  > .uhaUnhidden {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  > .uhaHidden {
+    text-align: right;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+    > p{
+      background-color: rgba(29, 29, 29, 0.5)
+    }
+  }
+
+
+}
