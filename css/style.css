@@ -532,6 +532,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f5f5f5;
   .inner {
     padding: 100px;
   }
