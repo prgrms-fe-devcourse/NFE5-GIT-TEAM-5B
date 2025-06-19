@@ -37,7 +37,7 @@ const searchButton = document.querySelector('.search-button');
 
 searchButton.addEventListener( 'click', () => {
     const filtered = filterFestivals(); //필터된 배열 받기
-
+    console.log( filtered );
     return filtered
 })
 
