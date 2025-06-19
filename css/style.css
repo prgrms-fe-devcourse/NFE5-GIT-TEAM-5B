@@ -292,7 +292,7 @@
       height: 30px;
       background: url('../assets/images/btn_play.svg') no-repeat center/cover;
       &.pause {
-        background: url('../assets/images/btn_stop.svg') no-repeat center/cover;
+        background: url("../assets/images/btn_stop.svg") no-repeat center/cover;
       }
     }
   }
@@ -499,11 +499,11 @@
 }
 @keyframes opacity {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
 
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -529,11 +529,24 @@
 .section02 {
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background-color: #eee;
   .inner {
-    padding: 100px;
+    padding: 250px 100px 100px 100px;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+
+    > .map-block {
+      width: 60%;
+      height: 600px;
+      border-radius: 0.7rem;
+    }
+    > .filter-list {
+      width: 40%;
+    }
   }
 }
 
@@ -547,34 +560,39 @@
   }
 }
 
-
 /* filter design */
 
 @font-face {
-  font-family: 'filter-font';
-  src: url('/assets/fonts/BLANCH_CAPS.otf') format('opentype');
+  font-family: "filter-font";
+  src: url("/assets/fonts/BLANCH_CAPS.otf") format("opentype");
   font-style: normal;
   font-weight: normal;
 }
 
 .filter {
-  width: 100%;
+  width: 500px;
   height: 100px;
   background-color: white;
-  border-radius: 30px;
-  
+  border-radius: 20px 20px 10px 10px;
+  margin-bottom: 10px;
+
+  border-top: 5px solid #ccc;
+  border-left: 3px solid #ccc;
+  border-right: 3px solid #ccc;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .filter-group {
-  width: 90%;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
 
   > button {
     background-color: transparent;
@@ -582,23 +600,18 @@
 }
 
 .filter-item {
-  width: 25%;
-  height: 70%;
-
-  padding-left: 10px;
+  flex: 1;
+  padding-right: 5px;
+  min-width: 0;
 
   position: relative;
 
   display: flex;
   flex-direction: column;
 
-
   > label {
-    font-family: 'filter-font';
-    font-size: 30px;
-    padding: 0;
-    margin-top: 0;
-    margin-bottom: 4px;
+    font-family: "filter-font";
+    font-size: 25px;
   }
 }
 
@@ -607,13 +620,20 @@
 
   display: flex;
 
+  > input {
+    width: 80px;
+    height: 20px;
+    color: rgb(103, 100, 100);
+  }
+
   > input::placeholder {
+    font-size: 14px;
     color: #ccc;
   }
 
   > button {
     background-color: transparent;
-    padding-right: 50px;
+    padding-right: 10px;
 
     position: absolute;
     top: 0;
@@ -621,8 +641,8 @@
     translate: 0 -50%;
 
     > svg {
-      width: 25px;
-      height: 25px;
+      width: 22px;
+      height: 22px;
     }
 
     > svg > path {
@@ -630,7 +650,6 @@
     }
 
     &:hover {
-
       cursor: pointer;
 
       > svg > path {
@@ -638,35 +657,42 @@
       }
     }
   }
- 
 }
 
 #filter-date {
-  font-size: 15px;
+  font-size: 14px;
   border: none;
 
   &::placeholder {
     color: #ccc;
   }
 
+  &:-webkit-datetime-edit {
+    color: black;
+  }
 }
 
 .dropdown {
-  width: 84%;
-  max-height: 200px;
+  width: 90%;
+  max-height: 130px;
   overflow-y: auto;
   background: white;
 
   position: absolute;
-  top: 70px;
+  top: 60px;
+  left: 0;
+
+  z-index: 5;
+
+  font-size: 15px;
 
   > li:first-child {
     border-top: 1px solid #ccc;
   }
 
   > li {
-    padding-top: 5px;
-    padding-left: 10px;
+    padding-left: 4px;
+    padding-top: 2px;
 
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
@@ -681,15 +707,19 @@
     color: white;
     background-color: #ccc;
   }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
 }
 
-#searchButton {
-
+.search-button {
   cursor: pointer;
+  z-index: 5;
 
   > svg {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
 
   > svg > path {
@@ -697,9 +727,23 @@
   }
 
   &:hover {
-
     > svg > path {
       fill: #ccc;
     }
+  }
+}
+.display-none {
+  display: none;
+}
+
+.festival-image-overlay {
+  width: 60%;
+  height: 600px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.7rem;
   }
 }

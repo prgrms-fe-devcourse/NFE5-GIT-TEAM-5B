@@ -8,6 +8,7 @@ import { getFestival } from '../utils/getFestival.js';
 const filterInputs = document.querySelectorAll( '.filter-item input' );
 const [ filterCountryInput, filterCityInput, filterDateInput, filterThemeInput ] = filterInputs;
 
+
 //
 export function filterFestivals() {
 
@@ -32,6 +33,14 @@ export function filterFestivals() {
     updateDropdowns( filterCountryText, filterCityText, filterDateText, filterThemeText );
     return matched;
 }
+
+// export function handleSearchClick( ){
+//   const searchButton = document.querySelector('.search-button');
+
+//   searchButton.addEventListener('click',()=>{
+//     lastFilteredFestivals = filterFestivals();
+//   })
+// }
 
 function updateDropdowns( countryText, cityText, dateText, themeText ) {
 
@@ -64,7 +73,6 @@ function updateDropdowns( countryText, cityText, dateText, themeText ) {
                 const dateList = festivals
                     .filter(item => item.date.includes(dateText))
                     .map(item => item.date);
-                addDropdown('date', dateList);
             }
             break;
 
@@ -124,9 +132,6 @@ export function addDropdown( filter, items ) {
                     break;
                 case 'city':
                     filterCityInput.value = item;
-                    break;
-                case 'date':
-                    filterDateInput.value = item;
                     break;
                 case 'theme':
                     filterThemeInput.value = item;

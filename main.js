@@ -1,9 +1,20 @@
-import { 
+import {
   getFestival,
   uhaRenderList,
   uhaHandleMouseEnter,
   uhaHandleMouseLeave,
- } from './js/index.js';
+  createFestivalInfo,
+  filterFestivals,
+} from "./js/index.js";
+import { config } from "./js/data/apikey.js";
+import {
+  addMarkers,
+  deleteMarkers,
+  initMap,
+  isDefaultMarker,
+  isFocusMarker,
+  setMapCenter,
+} from "./js/components/map.js";
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -12,6 +23,12 @@ const nav = $(".nav");
 const gnb = $(".gnb");
 const stripes = $(".stripes");
 const links = $$(".nav a");
+
+let markers = {};
+const map = initMap();
+
+setMapCenter(map);
+markers = addMarkers(map);
 
 toggle.addEventListener("click", () => {
   nav.classList.toggle("visible");
@@ -26,6 +43,30 @@ document.addEventListener("click", (e) => {
     toggle.classList.remove("visible");
     stripes.classList.remove("visible");
     gnb.classList.remove("hidden");
+  }
+});
+
+const controllerBtn = $(".video_controller a");
+const video = $(".main_video");
+
+function controllerBtnHandler(type) {
+  if (type === 'pause') {
+    controllerBtn.setAttribute('data-play', 'play');
+    controllerBtn.classList.remove('pause');
+  } else if (type === 'play') {
+    controllerBtn.classList.add('pause');
+    controllerBtn.setAttribute('data-play', 'pause');
+  }
+}
+
+controllerBtn.addEventListener('click', function() {
+  const dataPlay = this.getAttribute('data-play');
+  if (dataPlay === 'pause') {
+    video.play().catch(e => console.error(e));
+    controllerBtnHandler('pause');
+  } else if (dataPlay === 'play') {
+    video.pause();
+    controllerBtnHandler('play');
   }
 });
 
@@ -71,39 +112,53 @@ gsap.to(visualWrapper, {
   },
 });
 
-const controllerBtn = $(".video_controller a");
-const video = $(".main_video");
+let festivalList = getFestival();
+const uhaUl = document.querySelector(".uhaUl");
+const imgNode = document.querySelector(".map-block");
+const infoNode = document.querySelector(".fillter-list");
+const searchButton = document.querySelector(".search-button");
 
-function controllerBtnHandler(type) {
-  if (type === 'pause') {
-    controllerBtn.setAttribute('data-play', 'play');
-    controllerBtn.classList.remove('pause');
-  } else if (type === 'play') {
-    controllerBtn.classList.add('pause');
-    controllerBtn.setAttribute('data-play', 'pause');
-  }
+uhaRenderList(festivalList, uhaUl);
+const uhaButtons = document.querySelectorAll("li button");
+
+uhaButtons.forEach((uhaButton) => {
+  uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
+  uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
+});
+
+
+searchButton.addEventListener('click',()=>{
+    festivalList = filterFestivals();
+    uhaUl.innerHTML = '';
+
+    uhaRenderList(festivalList, uhaUl);
+
+    gsap.from('.uhaLi', {
+    opacity: 0,
+    y: 30,
+    stagger: 0.1,
+    duration: 0.5,
+    ease: 'power2.out'
+    });
+
+    const uhaButtons = document.querySelectorAll("li button");
+    uhaButtons.forEach((uhaButton) => {
+    uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
+    uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
+  });
+    markers = deleteMarkers();
+  markers = addMarkers(map, festivalList);
+
+  })
+
+function test(e) {
+  console.log("test 함수 호출");
+  const target = e.target.closest(".uhaLi button");
+  const targetId = target.id;
+  createFestivalInfo(targetId, infoNode, imgNode);
+
+  uhaUl.classList.add("display-none");
+  imgNode.classList.add("display-none");
 }
 
-controllerBtn.addEventListener('click', function() {
-  const dataPlay = this.getAttribute('data-play');
-  if (dataPlay === 'pause') {
-    video.play().catch(e => console.error(e));
-    controllerBtnHandler('pause');
-  } else if (dataPlay === 'play') {
-    video.pause();
-    controllerBtnHandler('play');
-  }
-});
-
-
-const festivalList = getFestival();
-const uhaUl = document.querySelector('.uhaUl');
-
-uhaRenderList(festivalList,uhaUl);
-const uhaButtons = document.querySelectorAll('li button');
-
-
-uhaButtons.forEach(uhaButton => {
-uhaButton.addEventListener('mouseenter', uhaHandleMouseEnter);
-uhaButton.addEventListener('mouseleave', uhaHandleMouseLeave);
-});
+uhaUl.addEventListener("click", test);

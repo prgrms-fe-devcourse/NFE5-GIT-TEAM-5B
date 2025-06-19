@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,node,visualstudiocode,webstorm,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,node,visualstudiocode,webstorm,windows
 
+
+# API 키
+js/data/apikey.js
+
 ### macOS ###
 # General
 .DS_Store

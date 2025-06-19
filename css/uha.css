@@ -9,26 +9,27 @@
 
 
 .uhaUl {
-  width: 500px;
+  width: 100%;
   height: 500px;
   overflow-y: scroll;
   margin : 0 0 10px;
   border-radius: 9px 10px 10px 9px;
-  background-color: rgb(153, 152, 152);
+    border: 3px solid #874FFF;
+  /* background-color: #ba9aff; */
 }
 
 .uhaUl::-webkit-scrollbar {
   width: 10px;
-  background-color: rgb(153, 152, 152);
+  /* background-color: #ba9aff; */
   padding:3px;
   border-radius: 0 8px 8px 0;
 
 }
 
 .uhaUl::-webkit-scrollbar-thumb {
-  background: rgba(61, 61, 61, 0.685);
+  background: #874fffb9;
   border-radius: 0 4px 4px 0;
-  border: 1px solid rgba(61, 61, 61, 0.685);
+  border: 1px solid #874fffb9;
   
 }
 
@@ -38,9 +39,9 @@
   width: 100%;
   padding : 5px 0;
   box-sizing: border-box;
-  color: white;
+  color: black;
   font-weight: 600;
-  border-radius: 9px 0 0 9px;
+  border-radius: 5px 0 0 5px;
 
   background-repeat : no-repeat;
   background-position : center;

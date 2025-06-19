@@ -1,0 +1,93 @@
+/* 중심 정렬 */
+/* 축제 정보 컴포넌트 */
+.festival-info {
+  display: none;
+
+  width: 500px;
+  height: 500px;
+
+  /* width: 560px;
+  height: 540px; */
+  border: 3px solid #874fff;
+  background-color: #fff;
+  border-radius: 0.7rem;
+  padding: 1.5rem;
+  overflow: auto;
+  box-sizing: border-box;
+
+  /* position: absolute; 
+  z-index: 999; */
+}
+
+/* 헤더 영역: 제목 + 닫기 버튼 */
+.festival-info header {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.close-btn {
+  width: 2rem;
+  height: 2rem;
+  /* border: 1px solid black; */
+}
+
+/* 제목 스타일 */
+.festival-info h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* 본문 텍스트 */
+.festival-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* 버튼 스타일 (SVG 정렬 포함) */
+.festival-info button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SVG 크기 제한 및 정렬 */
+/* .festival-info button svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+} */
+
+.festivalInfoBtn {
+  width: 32px;
+  height: 32px;
+}
+
+.is-active {
+  display: block;
+}
+
+.hash-tag {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #874fff;
+
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+  border-bottom: 1px solid gray;
+}
