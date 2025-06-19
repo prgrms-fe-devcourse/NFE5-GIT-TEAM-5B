@@ -543,6 +543,7 @@
     > .map-block {
       width: 60%;
       height: 600px;
+      border-radius: 0.7rem;
     }
     > .filter-list {
       width: 40%;
