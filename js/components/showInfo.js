@@ -57,21 +57,22 @@ function createFestivalTemplate(name, city, theme, description) {
   const wrapper = document.createElement("div");
   wrapper.className = "festival-info is-active";
 
-  const themeList = theme.map((item) => `<li>${item}</li>`).join("");
+  const themeList = theme.map((item) => `<li>#${item}</li>`).join("");
 
-  wrapper.innerHTML = `
+  wrapper.innerHTML = /*html */ `
     <header>
       <h3>${name}</h3>
       <button class="close-btn">
-        <img src="../../../assets/images/Arrow back ios.svg" alt="뒤로가기" />
+        <img src="../../../assets/images/backIcon.png" alt="뒤로가기" />
       </button>
     </header>
-    <p><strong>도시:</strong> ${city}</p>
     <div>
-      <strong>테마:</strong>
-      <ul>${themeList}</ul>
+      <ul class="hash-tag">
+        <li>#${city}</li>
+        ${themeList}
+      </ul>
     </div>
-    <p><strong>설명:</strong> ${description}</p>
+    <p>${description}</p>
   `;
 
   return wrapper;
