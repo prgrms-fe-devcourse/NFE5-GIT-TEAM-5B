@@ -231,6 +231,15 @@
 .inner {
   width: 100vw;
   padding: 0 100px;
+  display: flex;
+  
+> .map-block {
+    width: 60%;
+}
+> .filter-list {
+    width: 40%;
+}
+
 }
 .section01 {
   height: 100vh;
