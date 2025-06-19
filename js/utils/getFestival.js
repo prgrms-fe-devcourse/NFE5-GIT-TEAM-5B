@@ -1,4 +1,4 @@
-import { festivals } from '../data/data.js';
+import { festivals } from "../data/data.js";
 
 /**
  * 축제 데이터를 조건에 따라 필터링하여 반환합니다.
@@ -22,7 +22,7 @@ import { festivals } from '../data/data.js';
  */
 
 export function getFestival(key, value) {
-  const validKeys = ['countryCode', 'city', 'date', 'name', 'theme']; // 허용된 필터 대상
+  const validKeys = ["countryCode", "city", "date", "name", "theme", "id"]; // 허용된 필터 대상
 
   // 매개변수 없이 호출 시: 전체 반환
   if (!key && !value) return festivals;
@@ -32,11 +32,11 @@ export function getFestival(key, value) {
     return []; // 빈 배열 반환.
   }
 
-  if (key === 'theme') {
-    return festivals.filter(item => item.theme.includes(value));
+  if (key === "theme") {
+    return festivals.filter((item) => item.theme.includes(value));
   }
 
-  return festivals.filter(item => item[key] === value);
+  return festivals.filter((item) => item[key] === value);
 }
 
 // 사용 예시
