@@ -1,11 +1,14 @@
-import { 
+import {
   getFestival,
   uhaRenderList,
   uhaHandleMouseEnter,
   uhaHandleMouseLeave,
- } from './js/index.js';
+  createFestivalInfo,
+} from "./js/index.js";
+import { config } from "./js/data/apikey.js";
+import { addMarkers, initMap, setMapCenter } from "./js/components/map.js";
 
- const $ = document.querySelector.bind(document);
+const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 const toggle = $(".nav_btn");
 const nav = $(".nav");
@@ -71,20 +74,30 @@ gsap.to(visualWrapper, {
   },
 });
 
-
-
-
-
-
-
 const festivalList = getFestival();
-const uhaUl = document.querySelector('.uhaUl');
+const uhaUl = document.querySelector(".uhaUl");
+const imgNode = document.querySelector(".map-block");
+const infoNode = document.querySelector(".fillter-list");
 
-uhaRenderList(festivalList,uhaUl);
-const uhaButtons = document.querySelectorAll('li button');
+uhaRenderList(festivalList, uhaUl);
+const uhaButtons = document.querySelectorAll("li button");
 
-
-uhaButtons.forEach(uhaButton => {
-uhaButton.addEventListener('mouseenter', uhaHandleMouseEnter);
-uhaButton.addEventListener('mouseleave', uhaHandleMouseLeave);
+uhaButtons.forEach((uhaButton) => {
+  uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
+  uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
 });
+
+function test(e) {
+  console.log("test 함수 호출");
+  const target = e.target.closest(".uhaLi button");
+  const targetId = target.id;
+  createFestivalInfo(targetId, infoNode, imgNode);
+}
+
+uhaUl.addEventListener("click", test);
+
+let markers = {};
+const map = initMap();
+
+addMarkers(map);
+setMapCenter(map);

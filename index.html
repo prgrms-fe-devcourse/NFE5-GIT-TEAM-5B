@@ -4,12 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Festory</title>
-    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.ico"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/uha.css" />
-
+    <link rel="stylesheet" href="./css/showInfo.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -86,7 +93,9 @@
               ></video>
               <div class="controller">
                 <div class="video_controller">
-                  <a href="#none" data-play="pause" class="pause"><span class="hide">재생/멈춤</span></a>
+                  <a href="#none" data-play="pause" class="pause"
+                    ><span class="hide">재생/멈춤</span></a
+                  >
                 </div>
               </div>
             </div>
@@ -185,47 +194,65 @@
         </section>
         <section class="section02" id="main_search">
           <div class="inner">
-
-            <div class="map-block">
-              
-            </div>
+            <div class="map-block"></div>
 
             <div class="fillter-list">
               <div class="filter">
-              <!-- <form action="/" method="get"> -->
+                <!-- <form action="/" method="get"> -->
                 <div class="filter-group">
                   <!-- Country -->
                   <div class="filter-item">
                     <label for="filter-country">Country</label>
                     <div class="filter-main">
-                      <input 
+                      <input
                         type="text"
                         id="filter-country"
-                        placeholder="Country" 
+                        placeholder="Country"
                       />
-                      <button type="button" class="filter-button" data-filter="country"> 
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 13L6 9H14L10 13Z" fill="white"/>
+                      <button
+                        type="button"
+                        class="filter-button"
+                        data-filter="country"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 13L6 9H14L10 13Z"
+                            fill="white"
+                          />
                         </svg>
                       </button>
                     </div>
-                    <ul class="dropdown" id="country-dd">
-                    </ul>
+                    <ul class="dropdown" id="country-dd"></ul>
                   </div>
 
                   <!-- City -->
                   <div class="filter-item">
                     <label for="filter-city">City</label>
                     <div class="filter-main">
-                      <input 
-                        type="text"
-                        id="filter-city"
-                        placeholder="City"
-                      />
-                      <button type="button" class="filter-button" data-filter="city"> 
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 13L6 9H14L10 13Z" fill="white"/>
-                        </svg>                        
+                      <input type="text" id="filter-city" placeholder="City" />
+                      <button
+                        type="button"
+                        class="filter-button"
+                        data-filter="city"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 13L6 9H14L10 13Z"
+                            fill="white"
+                          />
+                        </svg>
                       </button>
                     </div>
                     <ul class="dropdown" id="city-dd"></ul>
@@ -235,10 +262,7 @@
                   <div class="filter-item">
                     <label for="filter-date">Date</label>
                     <div class="filter-main">
-                      <input 
-                        type="date"
-                        id="filter-date"
-                      />
+                      <input type="date" id="filter-date" />
                     </div>
                     <ul class="dropdown" id="date-dd"></ul>
                   </div>
@@ -247,15 +271,28 @@
                   <div class="filter-item">
                     <label for="filter-theme">Theme</label>
                     <div class="filter-main">
-                      <input 
+                      <input
                         type="text"
                         id="filter-theme"
                         placeholder="Theme"
                       />
-                      <button type="button" class="filter-button" data-filter="theme">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 13L6 9H14L10 13Z" fill="white"/>
-                        </svg>                        
+                      <button
+                        type="button"
+                        class="filter-button"
+                        data-filter="theme"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 13L6 9H14L10 13Z"
+                            fill="white"
+                          />
+                        </svg>
                       </button>
                     </div>
                     <ul class="dropdown" id="theme-dd"></ul>
@@ -267,19 +304,14 @@
                     </svg>
                   </button>
                 </div>
-              <!-- </form> -->
+                <!-- </form> -->
+              </div>
+
+              <ul class="uhaUl"></ul>
             </div>
-
-            <ul class="uhaUl">
-            </ul>
-
-            </div>
-
-            
           </div>
         </section>
       </main>
-
     </div>
   </body>
 </html>
