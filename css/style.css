@@ -199,3 +199,160 @@
   }
 }
 
+
+/* filter design */
+
+@font-face {
+  font-family: 'filter-font';
+  src: url('/assets/fonts/BLANCH_CAPS.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.filter {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  border-radius: 30px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-group {
+  width: 90%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  > button {
+    background-color: transparent;
+  }
+}
+
+.filter-item {
+  width: 25%;
+  height: 70%;
+
+  padding-left: 10px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+
+  > label {
+    font-family: 'filter-font';
+    font-size: 30px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+}
+
+.filter-main {
+  position: relative;
+
+  display: flex;
+
+  > input::placeholder {
+    color: #ccc;
+  }
+
+  > button {
+    background-color: transparent;
+    padding-right: 50px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    translate: 0 -50%;
+
+    > svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    > svg > path {
+      fill: gray;
+    }
+
+    &:hover {
+
+      cursor: pointer;
+
+      > svg > path {
+        fill: rgb(0, 0, 0);
+      }
+    }
+  }
+ 
+}
+
+#filter-date {
+  font-size: 15px;
+  border: none;
+
+  &::placeholder {
+    color: #ccc;
+  }
+
+}
+
+.dropdown {
+  width: 84%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+
+  position: absolute;
+  top: 70px;
+
+  > li:first-child {
+    border-top: 1px solid #ccc;
+  }
+
+  > li {
+    padding-top: 5px;
+    padding-left: 10px;
+
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+
+  > li:last-child {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  > li:hover {
+    color: white;
+    background-color: #ccc;
+  }
+}
+
+#searchButton {
+
+  cursor: pointer;
+
+  > svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  > svg > path {
+    fill: black;
+    transform: all 1s;
+  }
+
+  &:hover {
+
+    > svg > path {
+      fill: #ccc;
+    }
+  }
+}
