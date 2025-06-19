@@ -30,10 +30,16 @@ export function filterFestivals() {
     });
     
     updateDropdowns( filterCountryText, filterCityText, filterDateText, filterThemeText );
-    console.log( matched );
     return matched;
 }
 
+const searchButton = document.querySelector('.search-button');
+
+searchButton.addEventListener( 'click', () => {
+    const filtered = filterFestivals(); //필터된 배열 받기
+
+    return filtered
+})
 
 function updateDropdowns( countryText, cityText, dateText, themeText ) {
 

@@ -714,3 +714,24 @@
     width: 5px;
   }
 }
+
+.search-button {
+
+  cursor: pointer;
+  z-index: 5;
+
+  > svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  > svg > path {
+    fill: black;
+  }
+
+  &:hover {
+    > svg > path {
+      fill: #ccc;
+    }
+  }
+}
