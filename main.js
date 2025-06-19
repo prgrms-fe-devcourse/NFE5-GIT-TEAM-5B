@@ -102,9 +102,6 @@ uhaButtons.forEach((uhaButton) => {
   uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
 });
 
-searchButton.addEventListener("click", () => {
-  festivalList = filterFestivals();
-  uhaUl.innerHTML = "";
 
 searchButton.addEventListener('click',()=>{
     festivalList = filterFestivals();
@@ -120,11 +117,15 @@ searchButton.addEventListener('click',()=>{
     ease: 'power2.out'
     });
 
-  })
-
-  markers = deleteMarkers();
+    const uhaButtons = document.querySelectorAll("li button");
+    uhaButtons.forEach((uhaButton) => {
+    uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
+    uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
+  });
+    markers = deleteMarkers();
   markers = addMarkers(map, festivalList);
-});
+
+  })
 
 function test(e) {
   console.log("test 함수 호출");
