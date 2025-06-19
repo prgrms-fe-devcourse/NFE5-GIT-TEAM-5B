@@ -106,7 +106,6 @@ searchButton.addEventListener("click", () => {
   festivalList = filterFestivals();
   uhaUl.innerHTML = "";
 
-<<<<<<< HEAD
 searchButton.addEventListener('click',()=>{
     festivalList = filterFestivals();
     uhaUl.innerHTML = '';
@@ -122,10 +121,6 @@ searchButton.addEventListener('click',()=>{
     });
 
   })
-
-=======
-  uhaRenderList(festivalList, uhaUl);
->>>>>>> main
 
   markers = deleteMarkers();
   markers = addMarkers(map, festivalList);
