@@ -5,6 +5,8 @@ import {
   uhaHandleMouseLeave,
   createFestivalInfo,
 } from "./js/index.js";
+import { config } from "./js/data/apikey.js";
+import { addMarkers, initMap, setMapCenter } from "./js/utils/map.js";
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -93,3 +95,9 @@ function test(e) {
 }
 
 uhaUl.addEventListener("click", test);
+
+let markers = {};
+const map = initMap();
+
+addMarkers(map);
+setMapCenter(map);
