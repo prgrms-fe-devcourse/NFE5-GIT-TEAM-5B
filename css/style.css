@@ -346,7 +346,6 @@
 
   > svg > path {
     fill: black;
-    transform: all 1s;
   }
 
   &:hover {
