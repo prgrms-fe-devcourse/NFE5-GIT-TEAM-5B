@@ -7,7 +7,14 @@ import {
   filterFestivals,
 } from "./js/index.js";
 import { config } from "./js/data/apikey.js";
-import { addMarkers, initMap, setMapCenter } from "./js/components/map.js";
+import {
+  addMarkers,
+  deleteMarkers,
+  initMap,
+  isDefaultMarker,
+  isFocusMarker,
+  setMapCenter,
+} from "./js/components/map.js";
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -16,6 +23,12 @@ const nav = $(".nav");
 const gnb = $(".gnb");
 const stripes = $(".stripes");
 const links = $$(".nav a");
+
+let markers = {};
+const map = initMap();
+
+setMapCenter(map);
+markers = addMarkers(map);
 
 toggle.addEventListener("click", () => {
   nav.classList.toggle("visible");
@@ -75,21 +88,25 @@ gsap.to(visualWrapper, {
   },
 });
 
-
 let festivalList = getFestival();
 const uhaUl = document.querySelector(".uhaUl");
 const imgNode = document.querySelector(".map-block");
 const infoNode = document.querySelector(".fillter-list");
-const searchButton = document.querySelector('.search-button');
+const searchButton = document.querySelector(".search-button");
 
 uhaRenderList(festivalList, uhaUl);
 const uhaButtons = document.querySelectorAll("li button");
 
 uhaButtons.forEach((uhaButton) => {
   uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
-  uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);})
+  uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
+});
 
+searchButton.addEventListener("click", () => {
+  festivalList = filterFestivals();
+  uhaUl.innerHTML = "";
 
+<<<<<<< HEAD
 searchButton.addEventListener('click',()=>{
     festivalList = filterFestivals();
     uhaUl.innerHTML = '';
@@ -106,7 +123,13 @@ searchButton.addEventListener('click',()=>{
 
   })
 
+=======
+  uhaRenderList(festivalList, uhaUl);
+>>>>>>> main
 
+  markers = deleteMarkers();
+  markers = addMarkers(map, festivalList);
+});
 
 function test(e) {
   console.log("test 함수 호출");
@@ -119,9 +142,3 @@ function test(e) {
 }
 
 uhaUl.addEventListener("click", test);
-
-let markers = {};
-const map = initMap();
-
-addMarkers(map);
-setMapCenter(map);
