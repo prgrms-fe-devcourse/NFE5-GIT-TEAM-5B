@@ -8,7 +8,9 @@
 
   /* width: 560px;
   height: 540px; */
-  border: 1px solid black;
+  border: 3px solid #874fff;
+  background-color: #fff;
+  border-radius: 0.7rem;
   padding: 1.5rem;
   overflow: auto;
   box-sizing: border-box;
@@ -19,12 +21,18 @@
 
 /* 헤더 영역: 제목 + 닫기 버튼 */
 .festival-info header {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+}
+
+.close-btn {
+  width: 2rem;
+  height: 2rem;
+  /* border: 1px solid black; */
 }
 
 /* 제목 스타일 */
@@ -67,4 +75,19 @@
 
 .is-active {
   display: block;
+}
+
+.hash-tag {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #874fff;
+
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+  border-bottom: 1px solid gray;
 }
