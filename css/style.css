@@ -231,7 +231,6 @@
 .inner {
   width: 100vw;
   padding: 0 100px;
-
 }
 .section01 {
   height: 100vh;
@@ -292,9 +291,9 @@
       display: block;
       width: 20px;
       height: 20px;
-      background: url('../assets/images/btn_play.svg') no-repeat center/cover;
+      background: url("../assets/images/btn_play.svg") no-repeat center/cover;
       &.pause {
-        background: url('../assets/images/btn_stop.svg') no-repeat center/cover;
+        background: url("../assets/images/btn_stop.svg") no-repeat center/cover;
       }
     }
   }
@@ -501,11 +500,11 @@
 }
 @keyframes opacity {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
 
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -537,13 +536,17 @@
   .inner {
     padding: 250px 100px 100px 100px;
     display: flex;
-  
-  > .map-block {
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+
+    > .map-block {
       width: 60%;
-  }
-  > .filter-list {
+      height: 600px;
+    }
+    > .filter-list {
       width: 40%;
-  }
+    }
   }
 }
 
@@ -557,12 +560,11 @@
   }
 }
 
-
 /* filter design */
 
 @font-face {
-  font-family: 'filter-font';
-  src: url('/assets/fonts/BLANCH_CAPS.otf') format('opentype');
+  font-family: "filter-font";
+  src: url("/assets/fonts/BLANCH_CAPS.otf") format("opentype");
   font-style: normal;
   font-weight: normal;
 }
@@ -577,7 +579,7 @@
   border-top: 5px solid #ccc;
   border-left: 3px solid #ccc;
   border-right: 3px solid #ccc;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -608,10 +610,9 @@
   flex-direction: column;
 
   > label {
-    font-family: 'filter-font';
+    font-family: "filter-font";
     font-size: 25px;
   }
-
 }
 
 .filter-main {
@@ -649,7 +650,6 @@
     }
 
     &:hover {
-
       cursor: pointer;
 
       > svg > path {
@@ -657,7 +657,6 @@
       }
     }
   }
- 
 }
 
 #filter-date {
@@ -671,7 +670,6 @@
   &:-webkit-datetime-edit {
     color: black;
   }
-
 }
 
 .dropdown {
