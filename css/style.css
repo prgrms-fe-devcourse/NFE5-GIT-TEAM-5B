@@ -63,12 +63,13 @@
   width: 100%;
   height: 100vh;
   color: #fff;
-  font-size: 60px;
+  font-size: 58px;
   background-color: transparent;
   &.visible {
     z-index: 10;
   }
   &.visible .nav_list {
+    width: 100%;
     opacity: 1;
     top: 50%;
     transition: opacity 0.3s ease-in 0.5s, top 0.3s ease-in 0.6s;
@@ -86,11 +87,11 @@
     list-style: none;
     align-items: center;
     justify-content: center;
+    text-align: center;
     z-index: 100;
   }
   .nav_list_item {
-    margin-bottom: 30px;
-    cursor: pointer;
+    margin-bottom: 50px;
     a {
       position: relative;
       height: 100%;
@@ -183,22 +184,23 @@
 
 /* 싱단 네비 */
 .gnb {
+  width: 100%;
   display: flex;
+  justify-content: center;
   gap: 50px;
   position: fixed;
   top: 40px;
   left: 50%;
-  transform: translateX(-40%);
+  transform: translateX(-50%);
   z-index: 99;
-  .gnb_item {
-    &.disabled a:hover {
-      cursor: url("../assets/images/x_cursor.svg"), not-allowed;
-    }
+  .gnb_item.disabled a:hover {
+    cursor: url("../assets/images/x_cursor.svg"), not-allowed;
   }
   a {
     position: relative;
     font-size: 22px;
     color: #fff;
+    transition: all 0.3s;
     &::before {
       background-color: #ffcb6a;
       content: "";
@@ -278,7 +280,7 @@
     }
     .controller {
       position: absolute;
-      left: 50px;
+      left: 100px;
       bottom: 50px;
     }
     .video_controller {
@@ -289,8 +291,8 @@
     }
     .video_controller a {
       display: block;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       background: url("../assets/images/btn_play.svg") no-repeat center/cover;
       &.pause {
         background: url("../assets/images/btn_stop.svg") no-repeat center/cover;
@@ -477,6 +479,7 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, 0);
+      min-width: 400px;
     }
     .goMap_btn {
       display: block;
@@ -532,7 +535,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-color: #f5f5f5;
+  background-color: #eee;
   .inner {
     padding: 250px 100px 100px 100px;
     display: flex;
@@ -547,16 +550,6 @@
     }
     > .filter-list {
       width: 40%;
-    }
-  }
-}
-
-@media screen and (max-width: 1600px) {
-  .main_visual {
-    &.main_visual02 {
-      .inner {
-        width: 100%;
-      }
     }
   }
 }
@@ -759,5 +752,149 @@
     height: 100%;
     object-fit: cover;
     border-radius: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .main_visual {
+    &.main_visual02 {
+      .inner {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .section02 {
+    .inner {
+      padding: 50px 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .inner {
+    padding: 0 50px;
+  }
+  .section02 {
+    align-items: flex-end;
+    .inner {
+      flex-direction: column;
+      gap: 30px;
+      > .map-block {
+        width: 100%;
+        height: 30vh;
+      }
+    }
+    .filter {
+      width: 100%;
+    }
+    .fillter-list {
+      width: 100%;
+    }
+    .uhaUl {
+      height: 350px;
+    }
+  }
+  .gnb {
+    display: none;
+  }
+  .nav_btn {
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .main_visual {
+    h2 {
+      font-size: 83px;
+    }
+    .visual_tit {
+      font-size: 30px;
+      margin-bottom: 35px;
+    }
+    .sub_tit {
+      font-size: 16px;
+    }
+    &.main_visual01 {
+      .controller {
+        left: 20px;
+        bottom: 30px;
+      }
+    }
+    &.main_visual02 {
+      .card_list {
+        flex-direction: column;
+        gap: 20px;
+        > li {
+          width: 100%;
+          height: 20vh;
+        }
+      }
+      .card_text {
+        padding: 20px;
+      }
+      .card span {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .card p {
+        font-size: 14px;
+      }
+    }
+    &.main_visual03 {
+      > div {
+        width: 100%;
+        height: 25vh;
+      }
+      > div:nth-of-type(3) {
+        order: 4;
+      }
+      .visual03_txt {
+        padding: 0 30px;
+        h3 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+      .circle_txt {
+        width: 80px;
+      }
+    }
+    &.main_visual04 {
+      .inner {
+        padding: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav {
+    font-size: 40px;
+    .nav_list_item {
+      margin-bottom: 30px;
+    }
+  }
+  .main_visual {
+    h2 {
+      font-size: 60px;
+    }
+    &.main_visual04 {
+      .btn_wrapper {
+        width: 80vw;
+        min-width: 100%;
+        top: 70%;
+      }
+      .goMap_btn {
+        font-size: 30px;
+      }
+    }
+  }
+  .section02 {
+    .inner {
+      padding: 30px;
+    }
   }
 }

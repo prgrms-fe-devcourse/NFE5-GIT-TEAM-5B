@@ -46,6 +46,30 @@ document.addEventListener("click", (e) => {
   }
 });
 
+const controllerBtn = $(".video_controller a");
+const video = $(".main_video");
+
+function controllerBtnHandler(type) {
+  if (type === "pause") {
+    controllerBtn.setAttribute("data-play", "play");
+    controllerBtn.classList.remove("pause");
+  } else if (type === "play") {
+    controllerBtn.classList.add("pause");
+    controllerBtn.setAttribute("data-play", "pause");
+  }
+}
+
+controllerBtn.addEventListener("click", function () {
+  const dataPlay = this.getAttribute("data-play");
+  if (dataPlay === "pause") {
+    video.play().catch((e) => console.error(e));
+    controllerBtnHandler("pause");
+  } else if (dataPlay === "play") {
+    video.pause();
+    controllerBtnHandler("play");
+  }
+});
+
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY || window.pageYOffset;
   if (scrollY > 800) {
@@ -102,30 +126,28 @@ uhaButtons.forEach((uhaButton) => {
   uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
 });
 
+searchButton.addEventListener("click", () => {
+  festivalList = filterFestivals();
+  uhaUl.innerHTML = "";
 
-searchButton.addEventListener('click',()=>{
-    festivalList = filterFestivals();
-    uhaUl.innerHTML = '';
+  uhaRenderList(festivalList, uhaUl);
 
-    uhaRenderList(festivalList, uhaUl);
-
-    gsap.from('.uhaLi', {
+  gsap.from(".uhaLi", {
     opacity: 0,
     y: 30,
     stagger: 0.1,
     duration: 0.5,
-    ease: 'power2.out'
-    });
+    ease: "power2.out",
+  });
 
-    const uhaButtons = document.querySelectorAll("li button");
-    uhaButtons.forEach((uhaButton) => {
+  const uhaButtons = document.querySelectorAll("li button");
+  uhaButtons.forEach((uhaButton) => {
     uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
     uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
   });
-    markers = deleteMarkers();
+  markers = deleteMarkers();
   markers = addMarkers(map, festivalList);
-
-  })
+});
 
 function test(e) {
   console.log("test 함수 호출");
