@@ -83,8 +83,6 @@ const infoNode = document.querySelector(".fillter-list");
 const searchButton = document.querySelector('.search-button');
 
 
-console.log(festivalList);
-
 searchButton.addEventListener('click',()=>{
     festivalList = filterFestivals();
     uhaUl.innerHTML = '';
