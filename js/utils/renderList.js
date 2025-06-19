@@ -1,11 +1,16 @@
 // 축제 리스트 구성
-export function uhaMakeList(value){
-return `
+function uhaMakeList(value){
+  let themes = []
+  value.theme.forEach((the) => {
+    themes.push(` #${the}`);
+  })
+
+  return `
   <li class="uhaLi">
     <button type="button" data-img="${value.info.image}" id="${value.id}">
     <div class="uhaUnhidden">
       <p class="uhaName">${value.name}</p>
-      <p class="uhaTheme">#${value.theme}</p>
+      <p class="uhaTheme">${themes}</p>
     </div>
     <div class= "uhaHidden" hidden>
       <p class="uhaDate">${value.date}</p>
