@@ -30,8 +30,10 @@ export function filterFestivals() {
     });
     
     updateDropdowns( filterCountryText, filterCityText, filterDateText, filterThemeText );
+    console.log( matched );
     return matched;
 }
+
 
 function updateDropdowns( countryText, cityText, dateText, themeText ) {
 
@@ -64,7 +66,6 @@ function updateDropdowns( countryText, cityText, dateText, themeText ) {
                 const dateList = festivals
                     .filter(item => item.date.includes(dateText))
                     .map(item => item.date);
-                addDropdown('date', dateList);
             }
             break;
 
@@ -124,9 +125,6 @@ export function addDropdown( filter, items ) {
                     break;
                 case 'city':
                     filterCityInput.value = item;
-                    break;
-                case 'date':
-                    filterDateInput.value = item;
                     break;
                 case 'theme':
                     filterThemeInput.value = item;
