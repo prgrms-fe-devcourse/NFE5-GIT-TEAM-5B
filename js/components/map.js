@@ -11,7 +11,7 @@ export function initMap() {
   const mapOptions = {
     center: { lat: 0, lng: 0 },
     zoom: 10,
-    maxZoom: 18, // 건물보이는정도
+    maxZoom: 12, // 건물보이는정도
     minZoom: 2, // 세계지도
     disableDefaultUI: true, // 스트리트뷰이런거x, 키보드는 o
     restriction: {
@@ -47,26 +47,29 @@ export function addMarkers(map, data = getFestival()) {
     });
     markers[festival["id"]] = marker;
   });
-  // map.fitBounds(bounds);
+  map.fitBounds(bounds);
+  return markers;
 }
 export function isFocusMarker(data) {
   const pinFocused = new PinElement({
     scale: 1,
-    background: "#FFFF00",
-    borderColor: "#ffe100",
+    background: "#874FFF",
+    borderColor: "#7131f9",
+    glyphColor: "white",
   });
-  markers[data.id].content.replaceWith(pinFocused.element);
+  markers[data].content.replaceWith(pinFocused.element);
 }
 export function isDefaultMarker(data) {
   const pin = new PinElement({
     scale: 0.8,
   });
-  markers[data.id].content.replaceWith(pin.element);
+  markers[data].content.replaceWith(pin.element);
 }
 export function deleteMarkers() {
   Object.values(markers).forEach((marker) => {
     marker.setMap(null);
   });
+  markers = {};
   return markers;
 }
 
@@ -112,11 +115,6 @@ function animateZoom(map, targetZoom, speed = 150) {
   }, speed);
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  const map = initMap();
-  addMarkers(map);
-  setMapCenter(map);
-});
 // const map = initMap();
 
 // addMarkers(map);

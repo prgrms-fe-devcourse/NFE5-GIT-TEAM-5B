@@ -1,5 +1,5 @@
 export const APIKey = {
-  GOOGLE_MAPS_API_KEY: "",
+  GOOGLE_MAPS_API_KEY: "AIzaSyDgGUTI82RFDEWXVg3jXCPNihQmIABLRfY",
   MAP_ID: "6ccf1be60bbb888de2f16343",
 };
 
