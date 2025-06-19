@@ -8,6 +8,7 @@ import { getFestival } from '../utils/getFestival.js';
 const filterInputs = document.querySelectorAll( '.filter-item input' );
 const [ filterCountryInput, filterCityInput, filterDateInput, filterThemeInput ] = filterInputs;
 
+
 //
 export function filterFestivals() {
 
@@ -33,17 +34,13 @@ export function filterFestivals() {
     return matched;
 }
 
-export function handleSearchClick( callback ) {
-    const searchButton = document.querySelector('.search-button');
+// export function handleSearchClick( ){
+//   const searchButton = document.querySelector('.search-button');
 
-    searchButton.addEventListener( 'click', () => {
-        const filtered = filterFestivals(); //필터된 배열 받기
-        console.log( filtered );
-
-        callback(filtered);
-    })
-
-}
+//   searchButton.addEventListener('click',()=>{
+//     lastFilteredFestivals = filterFestivals();
+//   })
+// }
 
 function updateDropdowns( countryText, cityText, dateText, themeText ) {
 
