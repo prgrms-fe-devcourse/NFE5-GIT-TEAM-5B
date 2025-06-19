@@ -3,8 +3,8 @@
 export function uhaHandleMouseEnter(e) {
   const button = e.currentTarget; 
   const uhaHidden = button.querySelector('.uhaHidden');
-  const uhaUnhiddenPs = button.querySelectorAll('.uhaUnhidden p')
   uhaHidden.hidden = false;
+  button.style.color = 'white';
     gsap.to(button, {
         duration: 1,
         height: 120,
@@ -18,8 +18,8 @@ export function uhaHandleMouseEnter(e) {
 export function uhaHandleMouseLeave(e) {
   const button = e.currentTarget; 
   const uhaHidden = button.querySelector('.uhaHidden');
-  const uhaUnhiddenPs = button.querySelectorAll('.uhaUnhidden p');
   uhaHidden.hidden = true;
+  button.style.color = 'black';
     gsap.to(button, {
         duration: 1, 
         height: 'auto', 
