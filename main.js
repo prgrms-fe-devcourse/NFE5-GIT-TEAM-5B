@@ -98,5 +98,6 @@ uhaUl.addEventListener("click", test);
 
 let markers = {};
 const map = initMap();
+
 addMarkers(map);
 setMapCenter(map);
