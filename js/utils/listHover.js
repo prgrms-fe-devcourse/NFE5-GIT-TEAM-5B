@@ -9,12 +9,9 @@ export function uhaHandleMouseEnter(e) {
         duration: 1,
         height: 120,
         ease: "power2.out",
-        backgroundImage: `url("${button.dataset.img}")`,
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
+  url("${button.dataset.img}")`,
     });
-
-  uhaUnhiddenPs.forEach(p => {
-    p.style.backgroundColor = 'rgba(29, 29, 29, 0.5)';
-  });
 }
 
 // 마우스를 리스트에서 치우는 경우
@@ -29,8 +26,5 @@ export function uhaHandleMouseLeave(e) {
         ease: "power2.out",
         backgroundImage: 'none',
     });
-  uhaUnhiddenPs.forEach(p => {
-    p.style.removeProperty('background-color');
-  });
 }
 
