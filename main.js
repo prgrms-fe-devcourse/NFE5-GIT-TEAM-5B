@@ -6,7 +6,7 @@ import {
   createFestivalInfo,
 } from "./js/index.js";
 import { config } from "./js/data/apikey.js";
-import { addMarkers, initMap, setMapCenter } from "./js/utils/map.js";
+import { addMarkers, initMap, setMapCenter } from "./js/components/map.js";
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
