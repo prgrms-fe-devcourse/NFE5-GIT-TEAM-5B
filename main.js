@@ -95,11 +95,13 @@ searchButton.addEventListener('click',()=>{
     uhaUl.innerHTML = '';
 
     uhaRenderList(festivalList, uhaUl);
-    const uhaButtons = document.querySelectorAll("li button");
 
-    uhaButtons.forEach((uhaButton) => {
-      uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
-      uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
+    gsap.from('.uhaLi', {
+    opacity: 0,
+    y: 30,
+    stagger: 0.1,
+    duration: 0.5,
+    ease: 'power2.out'
     });
 
   })
