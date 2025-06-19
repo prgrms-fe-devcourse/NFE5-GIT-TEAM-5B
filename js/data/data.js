@@ -9,7 +9,7 @@ export const festivals = [
     "theme": ["불꽃놀이", "야경"],
     "location": { "lat": 37.5199, "lng": 126.9402 },
     "info": {
-      "image": "https://example.com/seoul_fireworks.jpg",
+      "image": "../assets/images/kr_seoul_fireworks.jpg",
       "description": "한강에서 열리는 대규모 불꽃놀이 축제입니다."
     }
   },
@@ -22,7 +22,7 @@ export const festivals = [
     "theme": ["전통", "퍼레이드"],
     "location": { "lat": 35.0037, "lng": 135.7788 },
     "info": {
-      "image": "https://example.com/gion_matsuri.jpg",
+      "image": "../assets/images/jp_gion_matsuri.jpg",
       "description": "교토의 대표 축제로, 수백 년 전통의 야마보코 행렬이 펼쳐집니다."
     }
   },
@@ -35,7 +35,7 @@ export const festivals = [
     "theme": ["카니발", "꽃", "퍼레이드"],
     "location": { "lat": 43.6959, "lng": 7.2656 },
     "info": {
-      "image": "https://example.com/nice_carnival.jpg",
+      "image": "../assets/images/fr_nice_carnival.jpeg",
       "description": "유럽 3대 카니발 중 하나로, 화려한 꽃차와 퍼레이드가 열립니다."
     }
   },
@@ -48,7 +48,7 @@ export const festivals = [
     "theme": ["댄스", "삼바", "카니발"],
     "location": { "lat": -22.9068, "lng": -43.1729 },
     "info": {
-      "image": "https://example.com/rio_carnival.jpg",
+      "image": "../assets/images/br_rio_carnival.jpg",
       "description": "세계 최대의 카니발, 리우 삼바 퍼레이드가 열립니다."
     }
   },
@@ -61,7 +61,7 @@ export const festivals = [
     "theme": ["음악", "야외", "팝문화"],
     "location": { "lat": 33.6784, "lng": -116.2371 },
     "info": {
-      "image": "https://example.com/coachella.jpg",
+      "image": "../assets/images/us_coachella.png",
       "description": "세계적인 아티스트들이 참여하는 미국 최대 음악 축제입니다."
     }
   },
@@ -74,7 +74,7 @@ export const festivals = [
     "theme": ["맥주", "전통", "독일문화"],
     "location": { "lat": 48.1351, "lng": 11.582 },
     "info": {
-      "image": "https://example.com/oktoberfest.jpg",
+      "image": "../assets/images/de_oktoberfest.jpg",
       "description": "독일 뮌헨에서 열리는 세계 최대 규모의 맥주 축제입니다."
     }
   },
@@ -87,7 +87,7 @@ export const festivals = [
     "theme": ["체험", "음식", "퍼포먼스"],
     "location": { "lat": 39.4206, "lng": -0.7892 },
     "info": {
-      "image": "https://example.com/tomatina.jpg",
+      "image": "../assets/images/es_tomatina.jpg",
       "description": "수천 명이 토마토를 던지는 독특한 스페인 축제입니다."
     }
   },
@@ -100,7 +100,7 @@ export const festivals = [
     "theme": ["등불", "전통", "설날"],
     "location": { "lat": 39.9042, "lng": 116.4074 },
     "info": {
-      "image": "https://example.com/lantern.jpg",
+      "image": "../assets/images/cn_lantern_festival.jpg",
       "description": "정월대보름에 열리는 중국 전통 등불 축제입니다."
     }
   },
@@ -113,7 +113,7 @@ export const festivals = [
     "theme": ["물놀이", "새해", "전통"],
     "location": { "lat": 13.7563, "lng": 100.5018 },
     "info": {
-      "image": "https://example.com/songkran.jpg",
+      "image": "../assets/images/th_songkran.jpg",
       "description": "태국 전통 새해 맞이 축제로, 물을 뿌리는 놀이로 유명합니다."
     }
   },
@@ -126,7 +126,7 @@ export const festivals = [
     "theme": ["불꽃놀이", "새해", "야경"],
     "location": { "lat": -33.8688, "lng": 151.2093 },
     "info": {
-      "image": "https://example.com/sydney_nye.jpg",
+      "image": "../assets/images/au_sydney_nye.jpg",
       "description": "세계에서 가장 먼저 새해를 맞는 도시 중 하나, 하버브리지 불꽃놀이가 인상적입니다."
     }
   }
