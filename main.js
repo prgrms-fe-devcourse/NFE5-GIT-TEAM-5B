@@ -4,6 +4,7 @@ import {
   uhaHandleMouseEnter,
   uhaHandleMouseLeave,
   createFestivalInfo,
+  handleSearchClick,
 } from "./js/index.js";
 import { config } from "./js/data/apikey.js";
 import { addMarkers, initMap, setMapCenter } from "./js/components/map.js";
@@ -74,18 +75,22 @@ gsap.to(visualWrapper, {
   },
 });
 
-const festivalList = getFestival();
+
 const uhaUl = document.querySelector(".uhaUl");
 const imgNode = document.querySelector(".map-block");
 const infoNode = document.querySelector(".fillter-list");
 
-uhaRenderList(festivalList, uhaUl);
-const uhaButtons = document.querySelectorAll("li button");
+handleSearchClick((festivalList) => {
+  uhaUl.innerHTML = '';
+  uhaRenderList(festivalList, uhaUl);
 
-uhaButtons.forEach((uhaButton) => {
-  uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
-  uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
-});
+  const uhaButtons = document.querySelectorAll("li button");
+  uhaButtons.forEach((uhaButton) => {
+    uhaButton.addEventListener("mouseenter", uhaHandleMouseEnter);
+    uhaButton.addEventListener("mouseleave", uhaHandleMouseLeave);
+  });
+})
+
 
 function test(e) {
   console.log("test 함수 호출");
