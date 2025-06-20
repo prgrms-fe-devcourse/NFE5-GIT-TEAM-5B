@@ -49,24 +49,25 @@ document.addEventListener("click", (e) => {
 const controllerBtn = $(".video_controller a");
 const video = $(".main_video");
 
-function controllerBtnHandler(type) {
-  if (type === "pause") {
-    controllerBtn.setAttribute("data-play", "play");
+function controllerBtnHandler(buttonState) { 
+  if (buttonState === "pause") { 
+    controllerBtn.setAttribute("data-play", "pause"); 
+    controllerBtn.classList.add("pause"); 
+  } else if (buttonState === "play") {
+    controllerBtn.setAttribute("data-play", "play"); 
     controllerBtn.classList.remove("pause");
-  } else if (type === "play") {
-    controllerBtn.classList.add("pause");
-    controllerBtn.setAttribute("data-play", "pause");
   }
 }
 
 controllerBtn.addEventListener("click", function () {
-  const dataPlay = this.getAttribute("data-play");
+  const dataPlay = this.getAttribute("data-play"); 
+
   if (dataPlay === "pause") {
+    video.pause(); 
+    controllerBtnHandler("play"); 
+  } else if (dataPlay === "play") {
     video.play().catch((e) => console.error(e));
     controllerBtnHandler("pause");
-  } else if (dataPlay === "play") {
-    video.pause();
-    controllerBtnHandler("play");
   }
 });
 
@@ -94,22 +95,36 @@ gsap.from(split.chars, {
 gsap.registerPlugin(ScrollTrigger);
 
 const visualWrapper = $(".main_visual_wrapper");
-const visualCount = $$(".main_visual").length;
-const wrapperWidth = visualCount * window.innerWidth;
+const visuals = $$(".main_visual");
 
-visualWrapper.style.width = wrapperWidth + "px";
+function setWrapperWidth() {
+  const wrapperWidth = visuals.length * window.innerWidth;
+  visualWrapper.style.width = wrapperWidth + "px";
 
-gsap.to(visualWrapper, {
-  x: () => -wrapperWidth + window.innerWidth,
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".section01",
-    start: "top top",
-    end: () => "+=" + (wrapperWidth - window.innerWidth),
-    scrub: 1,
-    pin: true,
-    invalidateOnRefresh: true,
-  },
+  gsap.set(visualWrapper, { x: 0 }); 
+
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+  gsap.to(visualWrapper, {
+    x: () => -wrapperWidth + window.innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".section01",
+      start: "top top",
+      end: () => "+=" + (wrapperWidth - window.innerWidth),
+      scrub: 1,
+      pin: true,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  ScrollTrigger.refresh();
+}
+
+setWrapperWidth();
+
+window.addEventListener("resize", () => {
+  setWrapperWidth();
 });
 
 let festivalList = getFestival();
