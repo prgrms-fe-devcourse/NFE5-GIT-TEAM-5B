@@ -146,7 +146,8 @@
 <img src="./assets/images/screen08.png" alt="screen" width="900" />
 <img src="./assets/images/screen09.png" alt="screen" width="900" />
 <img src="./assets/images/screen10.png" alt="screen" width="900" />
-
+---
+![festory-_1_.gif](attachment:3309f363-ea25-447d-95d2-4434f3d16214:festory-_1_.gif)
 ---
 
 ## 🚀 실행 방법
