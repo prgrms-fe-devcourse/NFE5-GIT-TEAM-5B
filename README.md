@@ -164,4 +164,11 @@ cd main
 npm i
 npm run dev
 # index.html 파일을 브라우저로 열면 실행됩니다.
+
+
+---
+##깃 특강
+백효영
+
+정은빈
 박수진
