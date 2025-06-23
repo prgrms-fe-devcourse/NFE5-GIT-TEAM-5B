@@ -166,4 +166,15 @@ npm run dev
 # index.html 파일을 브라우저로 열면 실행됩니다.
 
 
+<<<<<<< HEAD
 정은빈
+=======
+---
+##깃 특강
+백효영
+1번 실습 컨벤션을 정하지 못해서 수정할 포맷이 없습니다.
+정은빈
+박수진
+
+[CONTRIBUTING 파일](CONTRIBUTING.MD)
+>>>>>>> 589b4b356293aee97dd78723fc69f3ef74b199eb
