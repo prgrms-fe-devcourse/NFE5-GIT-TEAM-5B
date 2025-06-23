@@ -175,3 +175,4 @@ npm run dev
 박수진
 
 [CONTRIBUTING 파일](CONTRIBUTING.MD)
+수정입니다.
