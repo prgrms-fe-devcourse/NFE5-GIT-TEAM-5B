@@ -172,3 +172,5 @@ npm run dev
 
 정은빈
 박수진
+
+[CONTRIBUTING 파일](CONTRIBUTING.MD)
